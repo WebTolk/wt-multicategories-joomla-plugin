@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="system" method="upgrade">
+    <name>PLG_SYSTEM_WTMULTICATEGORIES</name>
+    <author>Sergey Tolkachyov</author>
+    <creationDate>29.01.2025</creationDate>
+    <copyright>Copyright (c) 2025 Sergey Tolkachyov. All rights reserved.</copyright>
+    <license>GNU General Public License version 3 or later; see LICENSE.txt</license>
+    <authorEmail>info@web-tolk.ru</authorEmail>
+    <authorUrl>https://web-tolk.ru</authorUrl>
+    <version>1.0.0</version>
+    <description>PLG_SYSTEM_WTMULTICATEGORIES_DESC</description>
+    <namespace path="src">Joomla\Plugin\System\Wtmulticategories</namespace>
+    <scriptfile>script.php</scriptfile>
+    <files>
+        <filename plugin="wtmulticategories">wtmulticategories.xml</filename>
+        <folder>services</folder>
+        <folder>src</folder>
+    </files>
+    <languages folder="language" client="administrator">
+        <language tag="en-GB">en-GB/plg_system_wtmulticategories.ini</language>
+        <language tag="en-GB">en-GB/plg_system_wtmulticategories.sys.ini</language>
+        <language tag="ru-RU">ru-RU/plg_system_wtmulticategories.ini</language>
+        <language tag="ru-RU">ru-RU/plg_system_wtmulticategories.sys.ini</language>
+    </languages>
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field addfieldprefix="Joomla\Plugin\System\Wtmulticategories\Field" type="plugininfo" name="plugininfo"/>
+                <field
+                        name="multicategories_com_content_field_id"
+                        type="sql"
+                        label="PLG_SYSTEM_WTMULTICATEGORIES_MULTICATEGORIES_COM_CONTENT_FIELD_ID"
+                        default=""
+                        query="SELECT id, title FROM #__fields WHERE state = 1 AND context = 'com_content.article'"
+                        key_field="id"
+                        value_field="title"
+                        layout="joomla.form.field.list-fancy-select"
+                        filter="integer"
+                />
+                <field
+                        name="multicategories_com_contact_field_id"
+                        type="sql"
+                        label="PLG_SYSTEM_WTMULTICATEGORIES_MULTICATEGORIES_COM_CONTACT_FIELD_ID"
+                        default=""
+                        query="SELECT id, title FROM #__fields WHERE state = 1 AND context = 'com_contact.contact'"
+                        key_field="id"
+                        value_field="title"
+                        layout="joomla.form.field.list-fancy-select"
+                        filter="integer"
+                />
+            </fieldset>
+        </fields>
+    </config>
+    <updateservers>
+        <server type="extension" priority="1" name="WT Multicategories updates">https://web-tolk.ru/component/swjprojects/jupdate?element=wtmulticategories</server>
+    </updateservers>
+    <changelogurl>https://web-tolk.ru/jchangelog?element=wtmulticategories</changelogurl>
+</extension>
