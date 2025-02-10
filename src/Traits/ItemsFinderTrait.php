@@ -16,9 +16,12 @@ use Joomla\Database\DatabaseAwareTrait;
 use Joomla\Database\QueryInterface;
 use Joomla\Utilities\ArrayHelper;
 
+use function defined;
 use function is_numeric;
 use function count;
 use function is_array;
+
+defined('_JEXEC') or die;
 
 trait ItemsFinderTrait
 {
