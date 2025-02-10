@@ -2,12 +2,12 @@
 <extension type="plugin" group="system" method="upgrade">
     <name>PLG_SYSTEM_WTMULTICATEGORIES</name>
     <author>Sergey Tolkachyov</author>
-    <creationDate>29.01.2025</creationDate>
+    <creationDate>10.02.2025</creationDate>
     <copyright>Copyright (c) 2025 Sergey Tolkachyov. All rights reserved.</copyright>
     <license>GNU General Public License version 3 or later; see LICENSE.txt</license>
     <authorEmail>info@web-tolk.ru</authorEmail>
     <authorUrl>https://web-tolk.ru</authorUrl>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <description>PLG_SYSTEM_WTMULTICATEGORIES_DESC</description>
     <namespace path="src">Joomla\Plugin\System\Wtmulticategories</namespace>
     <scriptfile>script.php</scriptfile>
