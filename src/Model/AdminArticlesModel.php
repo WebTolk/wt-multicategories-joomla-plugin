@@ -1,6 +1,6 @@
 <?php
 /**
- * Override getListQuery method for Joomla\Component\Content\Site\Model\ArticlesModel
+ * Override getListQuery method for Joomla\Component\Content\Administrator\Model\ArticlesModel
  *
  * @package    System - WT Multicategories
  * @version     1.1.0
@@ -13,15 +13,12 @@
 namespace Joomla\Plugin\System\Wtmulticategories\Model;
 
 use Joomla\CMS\Plugin\PluginHelper;
-use Joomla\Component\Content\Site\Model\ArticlesModel as BaseArticlesModel;
+use Joomla\Component\Content\Administrator\Model\ArticlesModel as BaseAdminArticlesModel;
 use Joomla\Database\QueryInterface;
 use Joomla\Plugin\System\Wtmulticategories\Traits\ItemsFinderTrait;
 use Joomla\Registry\Registry;
 
 use function defined;
-use function explode;
-use function is_string;
-use function str_contains;
 use function trim;
 
 defined('_JEXEC') or die;
@@ -31,7 +28,7 @@ defined('_JEXEC') or die;
  *
  * @since  1.6
  */
-class ArticlesModel extends BaseArticlesModel
+class AdminArticlesModel extends BaseAdminArticlesModel
 {
     use ItemsFinderTrait;
 
@@ -56,11 +53,11 @@ class ArticlesModel extends BaseArticlesModel
         if($multicategories_com_content_field_id > 0 )
         {
             // Filter by a single or group of categories
-            $categoryId = $this->getState('filter.category_id');
-	        if(!empty($categoryId))
-	        {
-		        $query = $this->findItemsByFieldValue($query, $multicategories_com_content_field_id, $categoryId);
-	        }
+            $categoryId = $this->getUserStateFromRequest($this->context . '.filter.category_id', 'filter_category_id');
+			if(!empty($categoryId))
+			{
+                $query = $this->findItemsByFieldValue($query, $multicategories_com_content_field_id, $categoryId);
+			}
         }
 
         return $query;

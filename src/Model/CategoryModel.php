@@ -3,7 +3,7 @@
  * Override getListQuery method for Joomla\Component\Contact\Site\Model\CategoryModel
  *
  * @package    System - WT Multicategories
- * @version     1.0.1
+ * @version     1.1.0
  * @Author      Sergey Tolkachyov, https://web-tolk.ru
  * @copyright   Copyright (C) 2025 Sergey Tolkachyov
  * @license     GNU/GPL https://www.gnu.org/licenses/gpl-3.0.html
@@ -97,7 +97,10 @@ class CategoryModel extends ContactCategoryModel
         {
             // Filter by a single or group of categories
             $categoryId = $this->getState('category.id');
-            $query = $this->findItemsByFieldValue($query, $multicategories_com_content_field_id, $categoryId);
+	        if(!empty($categoryId))
+	        {
+		        $query = $this->findItemsByFieldValue($query, $multicategories_com_content_field_id, $categoryId);
+	        }
         }
         return $query;
     }

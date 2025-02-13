@@ -1,7 +1,7 @@
 <?php
 /**
  * @package    System - WT Multicategories
- * @version     1.0.1
+ * @version     1.1.0
  * @Author      Sergey Tolkachyov, https://web-tolk.ru
  * @copyright   Copyright (C) 2025 Sergey Tolkachyov
  * @license     GNU/GPL https://www.gnu.org/licenses/gpl-3.0.html
@@ -11,6 +11,7 @@
 namespace Joomla\Plugin\System\Wtmulticategories\Extension;
 
 use Joomla\CMS\Plugin\CMSPlugin;
+use Joomla\Component\Content\Administrator\Model\ArticlesModel as AdminArticlesModel;
 use Joomla\Event\SubscriberInterface;
 use Joomla\CMS\Extension\ComponentInterface;
 use Joomla\CMS\MVC\Factory\MVCFactory;
@@ -75,10 +76,10 @@ class Wtmulticategories extends CMSPlugin implements SubscriberInterface
     public function onAfterExtensionBoot(EventInterface $event)
     {
         // Work only on frontend
-        if (!$this->getApplication()->isClient('site'))
-        {
-            return;
-        }
+	    if (!$this->getApplication()->isClient('site') && !($this->getApplication()->isClient('administrator') && $this->params->get('work_in_admin', false)))
+	    {
+		    return;
+	    }
 
         // Test that a component is being booted.
         if ($event->getArgument('type') !== ComponentInterface::class)
@@ -121,15 +122,18 @@ class Wtmulticategories extends CMSPlugin implements SubscriberInterface
 
                     switch ($class)
                     {
-                        case ArticlesModel::class :
-                            return 'Joomla\Plugin\System\Wtmulticategories\Model\ArticlesModel';
-                            break;
-                        case ContactCategoryModel::class :
-                            return 'Joomla\Plugin\System\Wtmulticategories\Model\CategoryModel';
-                            break;
-                        default:
-                            return $class;
-                            break;
+	                    case ArticlesModel::class :
+		                    return 'Joomla\Plugin\System\Wtmulticategories\Model\ArticlesModel';
+		                    break;
+	                    case AdminArticlesModel::class :
+		                    return 'Joomla\Plugin\System\Wtmulticategories\Model\AdminArticlesModel';
+		                    break;
+	                    case ContactCategoryModel::class :
+		                    return 'Joomla\Plugin\System\Wtmulticategories\Model\CategoryModel';
+		                    break;
+	                    default:
+		                    return $class;
+		                    break;
                     }
                 }
             }

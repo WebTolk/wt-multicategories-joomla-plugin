@@ -3,7 +3,7 @@
  * WT Multicategories
  *
  * @package    System - WT Multicategories
- * @version     1.0.1
+ * @version     1.1.0
  * @Author      Sergey Tolkachyov, https://web-tolk.ru
  * @copyright   Copyright (C) 2025 Sergey Tolkachyov
  * @license     GNU/GPL https://www.gnu.org/licenses/gpl-3.0.html
@@ -17,6 +17,7 @@ use Joomla\Database\QueryInterface;
 use Joomla\Utilities\ArrayHelper;
 
 use function defined;
+use function implode;
 use function is_numeric;
 use function count;
 use function is_array;
@@ -53,7 +54,7 @@ trait ItemsFinderTrait
 
             if (!empty($cat_id))
             {
-                $subQuery->whereIn($db->quoteName('fv.value'), $cat_id);
+	            $subQuery->where($db->quoteName('fv.value').' IN('.implode(',', $cat_id).')');
             }
         }
 
