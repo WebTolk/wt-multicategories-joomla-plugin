@@ -3,7 +3,7 @@
  * Override getListQuery method for Joomla\Component\Content\Administrator\Model\ArticlesModel
  *
  * @package    System - WT Multicategories
- * @version     1.1.0
+ * @version     1.2.0
  * @Author      Sergey Tolkachyov, https://web-tolk.ru
  * @copyright   Copyright (C) 2025 Sergey Tolkachyov
  * @license     GNU/GPL https://www.gnu.org/licenses/gpl-3.0.html
@@ -44,24 +44,36 @@ class AdminArticlesModel extends BaseAdminArticlesModel
      */
     protected function getListQuery()
     {
-        $query = parent::getListQuery();
-
         $plugin = PluginHelper::getPlugin('system','wtmulticategories');
         $plugin_params = new Registry($plugin->params);
         $multicategories_com_content_field_id = trim($plugin_params->get('multicategories_com_content_field_id',0));
+        $categoryId = $this->getUserStateFromRequest($this->context . '.filter.category_id', 'filter_category_id');
 
-        if($multicategories_com_content_field_id > 0 )
+        if($multicategories_com_content_field_id > 0 && !empty($categoryId))
         {
-            // Filter by a single or group of categories
-            $categoryId = $this->getUserStateFromRequest($this->context . '.filter.category_id', 'filter_category_id');
-			if(!empty($categoryId))
-			{
-                $query = $this->findItemsByFieldValue($query, $multicategories_com_content_field_id, $categoryId);
-			}
+            $this->setState('filter.category_id', []);
         }
 
+        $query = parent::getListQuery();
+
+        if($multicategories_com_content_field_id > 0 && !empty($categoryId))
+        {
+            $query = $this->applyMappedCategoryFilter(
+                $query,
+                (int) $multicategories_com_content_field_id,
+                $categoryId,
+                'com_content.article',
+                '#__content',
+                'id',
+                'catid',
+                'com_content',
+                true,
+                (int) $this->getState('filter.level')
+            );
+        }
+
+        $this->setState('filter.category_id', $categoryId);
+
         return $query;
-
     }
-
 }
