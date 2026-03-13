@@ -20,7 +20,7 @@ For easier category selection in custom fields, you can use the **WT Category cu
 
 ### CLI rebuild command
 
-If you update from `v.1.1.0`, existing materials and contacts are not rebuilt automatically. Use the CLI command to regenerate the mapping table for already saved items:
+If you update from `v.1.1.0`, existing articles and contacts are not rebuilt automatically. Use the CLI command to regenerate the mapping table for already saved items:
 
 ```bash
 /path/to/php /path/to/joomla/cli/joomla.php wtmulticategories:rebuild-map
