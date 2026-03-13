@@ -22,6 +22,11 @@
             <file driver="mysql" charset="utf8mb4">sql/install/mysql/install.sql</file>
         </sql>
     </install>
+    <uninstall>
+        <sql>
+            <file driver="mysql" charset="utf8mb4">sql/uninstall/mysql/uninstall.sql</file>
+        </sql>
+    </uninstall>
     <update>
         <schemas>
             <schemapath type="mysql">sql/updates/mysql</schemapath>
