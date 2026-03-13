@@ -19,12 +19,12 @@
     </files>
     <install>
         <sql>
-            <file driver="mysql" charset="utf8mb4">sql/install/mysql/install.sql</file>
+            <file driver="mysql" charset="utf8">sql/install/mysql/install.mysql.utf8.sql</file>
         </sql>
     </install>
     <uninstall>
         <sql>
-            <file driver="mysql" charset="utf8mb4">sql/uninstall/mysql/uninstall.sql</file>
+            <file driver="mysql" charset="utf8">sql/uninstall/mysql/uninstall.mysql.utf8.sql</file>
         </sql>
     </uninstall>
     <update>
