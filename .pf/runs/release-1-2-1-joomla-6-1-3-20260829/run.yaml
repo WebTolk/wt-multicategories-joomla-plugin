@@ -1,0 +1,31 @@
+schema_version: 1
+id: release-1-2-1-joomla-6-1-3-20260829
+title: Release 1.2.1 Joomla 6.1.3 compatibility
+process: software-feature-development
+status: completed
+created_at: '2026-08-29T07:19:12Z'
+updated_at: '2026-08-29T07:36:43Z'
+objective: Prepare bugfix release 1.2.1, compare the unpublished nerudas.local 1.3.0 deployment, synchronize the Contact query override with Joomla 6.1.3 where required, then build and fully verify on Joomla.local.
+platform: platform.joomla
+selected_specializations:
+  - specialization.fullstack
+scope:
+  type: project
+  project_root: .
+tasks:
+  -
+    id: task-release-1-2-1-core-compat
+    assignment: .pf/assignments/task-release-1-2-1-core-compat.yaml
+    status: done
+    order: 1
+    blocking: true
+final_artifacts:
+  - .pf/runs/release-1-2-1-joomla-6-1-3-20260829/summary.md
+  - .pf/handoffs/runs/release-1-2-1-joomla-6-1-3-20260829-handoff.md
+events:
+  emitted:
+    - run.created
+    - run.summary.created
+    - run.completed
+privacy:
+  public_safe: true

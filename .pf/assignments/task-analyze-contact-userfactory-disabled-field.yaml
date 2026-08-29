@@ -1,0 +1,75 @@
+schema_version: 1
+id: task-analyze-contact-userfactory-disabled-field
+title: Analyze Contact UserFactory error with disabled field
+run_id: userfactory-contact-analysis-20260829
+process: software-feature-development
+status: done
+created_at: '2026-08-29T06:28:01Z'
+updated_at: '2026-08-29T06:31:02Z'
+objective: Use project snapshot, Joomla knowledge, local source and issue evidence to identify root cause and propose a non-implementation solution plan.
+platform: platform.joomla
+selected_specializations:
+  - specialization.fullstack
+order: 1
+dependencies:
+  blocked_by:
+    []
+  blocks:
+    []
+iterations:
+  []
+result:
+  status: done
+  summary: 'Read-only analysis completed: root cause is unconditional MVCFactory replacement for com_contact before checking multicategories_com_contact_field_id; report artifact written.'
+  artifacts:
+    - .pf/artifacts/userfactory-contact-field-disabled-analysis.md
+execution_mode:
+  kind: read_only
+  code_changes_allowed: false
+  artifact_changes_allowed: true
+  requires_review: true
+context_artifacts:
+  -
+    path: .pf/contexts/project-context.snapshot.md
+    role: input
+    required: true
+    mutable_by_worker: false
+allowed_files:
+  - .pf/artifacts/userfactory-contact-field-disabled-analysis.md
+allowed_read_files:
+  - src/Extension/Wtmulticategories.php
+  - src/Model/CategoryModel.php
+  - src/Model/ArticlesModel.php
+  - src/Model/AdminArticlesModel.php
+  - services/provider.php
+  - wtmulticategories.xml
+  - README.md
+ownership:
+  owner_id: task-analyze-contact-userfactory-disabled-field
+  owner_label: worker-task-analyze-contact-userfactory-disabled-field
+  role: ""
+  writer: true
+  owned_files:
+    - .pf/artifacts/userfactory-contact-field-disabled-analysis.md
+  owned_globs:
+    []
+non_overlap:
+  policy: block_on_write_overlap
+  active_parallel_tasks:
+    []
+  current_write_scope:
+    - .pf/artifacts/userfactory-contact-field-disabled-analysis.md
+  rule: Do not edit files owned by active parallel tasks.
+required_outputs:
+  -
+    id: userfactory-contact-analysis-report
+    type: unspecified
+    required: true
+    path: .pf/artifacts/userfactory-contact-field-disabled-analysis.md
+agent_reasoning_effort: high
+expected_report:
+  language: ru
+  artifact: .pf/artifacts/userfactory-contact-field-disabled-analysis.md
+  format: concise_markdown
+  include:
+    - userfactory-contact-analysis-report

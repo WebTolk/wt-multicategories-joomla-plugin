@@ -1,0 +1,1571 @@
+schema_version: 1
+id: ctx-20260829-055631-66b6c0
+generated_at: '2026-08-29T05:56:27Z'
+snapshot:
+  id: ctx-20260829-055631-66b6c0
+  generated_at: '2026-08-29T05:56:27Z'
+  valid_until: '2026-09-05T05:56:27Z'
+  refresh_policy:
+    max_age_days: 7
+    refresh_when_sources_change: true
+    refresh_when_workplace_changes: true
+    refresh_when_package_versions_change: true
+    refresh_when_required_tools_change: true
+  health:
+    status: pass
+project:
+  id: wt-multicategories-joomla-plugin
+  name: wt-multicategories-joomla-plugin
+  type: joomla-extension
+project_classification:
+  status: classified
+  project_types:
+    - software.php-composer
+  platforms:
+    []
+  tags:
+    - software
+  confidence: high
+  loaded_classifiers:
+    - processforge.official.software-web.classifier
+  matched_rules:
+    -
+      classifier: processforge.official.software-web.classifier
+      rule: processforge.official.rule.composer-marker
+      confidence: high
+      source: software-web.yaml
+  inactive_classifier_hints:
+    []
+flow:
+  root: .pf
+  layout: pf
+  manifest: .pf/process-forge.yaml
+  local_config: .pf/process-forge.local.yaml
+process_forge:
+  version: 1.0.0
+  version_constraint: ^1.0
+  install_mode: linked
+  distribution:
+    id: processforge
+    source: workplace
+    path: <private-distribution-ref>
+    status: available
+platform_contracts:
+  available:
+    -
+      id: platform.joomla-joomshopping-platform
+      platform: joomla-joomshopping-platform
+      registry_entry: joomla-joomshopping
+      source: ../platforms/joomla/subplatforms/joomshopping/platform.json
+      status: available
+    -
+      id: platform.joomla-platform
+      platform: joomla-platform
+      registry_entry: joomla
+      source: ../platforms/joomla/platform.json
+      status: available
+    -
+      id: platform.joomla-radicalmart-platform
+      platform: joomla-radicalmart-platform
+      registry_entry: joomla-radicalmart
+      source: ../platforms/joomla/subplatforms/radicalmart/platform.json
+      status: available
+    -
+      id: platform.joomla-virtuemart-platform
+      platform: joomla-virtuemart-platform
+      registry_entry: joomla-virtuemart
+      source: ../platforms/joomla/subplatforms/virtuemart/platform.json
+      status: available
+  selected:
+    -
+      id: platform.joomla
+      platform: joomla
+      source: workplace
+      status: available
+      registry_entry: joomla
+      required_contract: true
+      relation: selected
+      inherited_by: null
+      extends:
+        []
+      requires_platforms:
+        []
+      required_capabilities:
+        []
+      required:
+        knowledge_packages:
+          []
+        tools:
+          []
+        mcp:
+          []
+        templates:
+          []
+      recommended:
+        knowledge_packages:
+          []
+        tools:
+          []
+        mcp:
+          []
+        templates:
+          []
+      optional:
+        knowledge_packages:
+          []
+        tools:
+          []
+        mcp:
+          []
+        templates:
+          []
+      parameters:
+        repo_root_pattern_ref: 'extension_project_repositories/{PROJECT_NAME}'
+        test_instance_pattern_ref: 'joomla_test_instances/{PROJECT_NAME}'
+        default_admin_auth_ref: joomla.default_admin.codex
+    -
+      id: platform.joomla-joomshopping
+      platform: joomla-joomshopping
+      source: workplace
+      status: available
+      registry_entry: joomla-joomshopping
+      required_contract: true
+      relation: selected
+      inherited_by: null
+      extends:
+        - platform.joomla
+      requires_platforms:
+        []
+      required_capabilities:
+        []
+      required:
+        knowledge_packages:
+          []
+        tools:
+          []
+        mcp:
+          []
+        templates:
+          []
+      recommended:
+        knowledge_packages:
+          []
+        tools:
+          []
+        mcp:
+          []
+        templates:
+          []
+      optional:
+        knowledge_packages:
+          []
+        tools:
+          []
+        mcp:
+          []
+        templates:
+          []
+      parameters:
+        {}
+    -
+      id: platform.joomla-radicalmart
+      platform: joomla-radicalmart
+      source: workplace
+      status: available
+      registry_entry: joomla-radicalmart
+      required_contract: true
+      relation: selected
+      inherited_by: null
+      extends:
+        - platform.joomla
+      requires_platforms:
+        []
+      required_capabilities:
+        []
+      required:
+        knowledge_packages:
+          []
+        tools:
+          []
+        mcp:
+          []
+        templates:
+          []
+      recommended:
+        knowledge_packages:
+          []
+        tools:
+          []
+        mcp:
+          []
+        templates:
+          []
+      optional:
+        knowledge_packages:
+          []
+        tools:
+          []
+        mcp:
+          []
+        templates:
+          []
+      parameters:
+        {}
+    -
+      id: platform.joomla-virtuemart
+      platform: joomla-virtuemart
+      source: workplace
+      status: available
+      registry_entry: joomla-virtuemart
+      required_contract: true
+      relation: selected
+      inherited_by: null
+      extends:
+        - platform.joomla
+      requires_platforms:
+        []
+      required_capabilities:
+        []
+      required:
+        knowledge_packages:
+          []
+        tools:
+          []
+        mcp:
+          []
+        templates:
+          []
+      recommended:
+        knowledge_packages:
+          []
+        tools:
+          []
+        mcp:
+          []
+        templates:
+          []
+      optional:
+        knowledge_packages:
+          []
+        tools:
+          []
+        mcp:
+          []
+        templates:
+          []
+      parameters:
+        {}
+  stack:
+    -
+      id: platform.joomla
+      platform: joomla
+      source: workplace
+      status: available
+      relation: selected
+      required: true
+      inherited_by: null
+      extends:
+        []
+      requires_platforms:
+        []
+    -
+      id: platform.joomla-joomshopping
+      platform: joomla-joomshopping
+      source: workplace
+      status: available
+      relation: selected
+      required: true
+      inherited_by: null
+      extends:
+        - platform.joomla
+      requires_platforms:
+        []
+    -
+      id: platform.joomla-radicalmart
+      platform: joomla-radicalmart
+      source: workplace
+      status: available
+      relation: selected
+      required: true
+      inherited_by: null
+      extends:
+        - platform.joomla
+      requires_platforms:
+        []
+    -
+      id: platform.joomla-virtuemart
+      platform: joomla-virtuemart
+      source: workplace
+      status: available
+      relation: selected
+      required: true
+      inherited_by: null
+      extends:
+        - platform.joomla
+      requires_platforms:
+        []
+  missing_required:
+    []
+  circular:
+    []
+  missing_required_resources:
+    []
+  missing_recommended_resources:
+    []
+available_platform_contracts:
+  -
+    id: platform.joomla-joomshopping-platform
+    platform: joomla-joomshopping-platform
+    registry_entry: joomla-joomshopping
+    source: ../platforms/joomla/subplatforms/joomshopping/platform.json
+    status: available
+  -
+    id: platform.joomla-platform
+    platform: joomla-platform
+    registry_entry: joomla
+    source: ../platforms/joomla/platform.json
+    status: available
+  -
+    id: platform.joomla-radicalmart-platform
+    platform: joomla-radicalmart-platform
+    registry_entry: joomla-radicalmart
+    source: ../platforms/joomla/subplatforms/radicalmart/platform.json
+    status: available
+  -
+    id: platform.joomla-virtuemart-platform
+    platform: joomla-virtuemart-platform
+    registry_entry: joomla-virtuemart
+    source: ../platforms/joomla/subplatforms/virtuemart/platform.json
+    status: available
+selected_platform_contracts:
+  -
+    id: platform.joomla
+    platform: joomla
+    source: workplace
+    status: available
+    registry_entry: joomla
+    required_contract: true
+    relation: selected
+    inherited_by: null
+    extends:
+      []
+    requires_platforms:
+      []
+    required_capabilities:
+      []
+    required:
+      knowledge_packages:
+        []
+      tools:
+        []
+      mcp:
+        []
+      templates:
+        []
+    recommended:
+      knowledge_packages:
+        []
+      tools:
+        []
+      mcp:
+        []
+      templates:
+        []
+    optional:
+      knowledge_packages:
+        []
+      tools:
+        []
+      mcp:
+        []
+      templates:
+        []
+    parameters:
+      repo_root_pattern_ref: 'extension_project_repositories/{PROJECT_NAME}'
+      test_instance_pattern_ref: 'joomla_test_instances/{PROJECT_NAME}'
+      default_admin_auth_ref: joomla.default_admin.codex
+  -
+    id: platform.joomla-joomshopping
+    platform: joomla-joomshopping
+    source: workplace
+    status: available
+    registry_entry: joomla-joomshopping
+    required_contract: true
+    relation: selected
+    inherited_by: null
+    extends:
+      - platform.joomla
+    requires_platforms:
+      []
+    required_capabilities:
+      []
+    required:
+      knowledge_packages:
+        []
+      tools:
+        []
+      mcp:
+        []
+      templates:
+        []
+    recommended:
+      knowledge_packages:
+        []
+      tools:
+        []
+      mcp:
+        []
+      templates:
+        []
+    optional:
+      knowledge_packages:
+        []
+      tools:
+        []
+      mcp:
+        []
+      templates:
+        []
+    parameters:
+      {}
+  -
+    id: platform.joomla-radicalmart
+    platform: joomla-radicalmart
+    source: workplace
+    status: available
+    registry_entry: joomla-radicalmart
+    required_contract: true
+    relation: selected
+    inherited_by: null
+    extends:
+      - platform.joomla
+    requires_platforms:
+      []
+    required_capabilities:
+      []
+    required:
+      knowledge_packages:
+        []
+      tools:
+        []
+      mcp:
+        []
+      templates:
+        []
+    recommended:
+      knowledge_packages:
+        []
+      tools:
+        []
+      mcp:
+        []
+      templates:
+        []
+    optional:
+      knowledge_packages:
+        []
+      tools:
+        []
+      mcp:
+        []
+      templates:
+        []
+    parameters:
+      {}
+  -
+    id: platform.joomla-virtuemart
+    platform: joomla-virtuemart
+    source: workplace
+    status: available
+    registry_entry: joomla-virtuemart
+    required_contract: true
+    relation: selected
+    inherited_by: null
+    extends:
+      - platform.joomla
+    requires_platforms:
+      []
+    required_capabilities:
+      []
+    required:
+      knowledge_packages:
+        []
+      tools:
+        []
+      mcp:
+        []
+      templates:
+        []
+    recommended:
+      knowledge_packages:
+        []
+      tools:
+        []
+      mcp:
+        []
+      templates:
+        []
+    optional:
+      knowledge_packages:
+        []
+      tools:
+        []
+      mcp:
+        []
+      templates:
+        []
+    parameters:
+      {}
+platform_selection:
+  status: selected
+  reason: Project manifest or detection selected platform contracts.
+platform_stack:
+  -
+    id: platform.joomla
+    platform: joomla
+    source: workplace
+    status: available
+    relation: selected
+    required: true
+    inherited_by: null
+    extends:
+      []
+    requires_platforms:
+      []
+  -
+    id: platform.joomla-joomshopping
+    platform: joomla-joomshopping
+    source: workplace
+    status: available
+    relation: selected
+    required: true
+    inherited_by: null
+    extends:
+      - platform.joomla
+    requires_platforms:
+      []
+  -
+    id: platform.joomla-radicalmart
+    platform: joomla-radicalmart
+    source: workplace
+    status: available
+    relation: selected
+    required: true
+    inherited_by: null
+    extends:
+      - platform.joomla
+    requires_platforms:
+      []
+  -
+    id: platform.joomla-virtuemart
+    platform: joomla-virtuemart
+    source: workplace
+    status: available
+    relation: selected
+    required: true
+    inherited_by: null
+    extends:
+      - platform.joomla
+    requires_platforms:
+      []
+sources:
+  fingerprints:
+    -
+      id: project_manifest
+      path: .pf/process-forge.yaml
+      kind: manifest
+      checksum: ca58cf10c7c0b24af08c6ba37ddcaccbdef61e192c9ef263109bf96c74d69734
+    -
+      id: local_config
+      path: .pf/process-forge.local.yaml
+      kind: local-config
+      checksum: 365298c09f9d60e3bfeae342382f97b857f80917678cb4dbe08d9444770d361c
+      private: true
+    -
+      id: workplace_manifest
+      path: <private-workplace-manifest-ref>
+      kind: workplace
+      checksum: b4ae197ee92340bf4a4fef645fe47c4620c34f72c489308c61c1417bab897de3
+      private: true
+    -
+      id: workplace-specialization-registry-registries-specializations-yaml
+      path: <private-workplace-ref>/registries/specializations.yaml
+      kind: workplace-specialization-registry
+      checksum: 68ff31159c8a819805252b2919a0e960a68c4d8d8d00d8da3832d4a8337b8278
+      private: true
+    -
+      id: workplace-project-classifier-registry-registries-project-classifiers-yaml
+      path: <private-workplace-ref>/registries/project-classifiers.yaml
+      kind: workplace-project-classifier-registry
+      checksum: d1c26c4994bae658594d9dcfae02f8879a318db78a679dd3f06d6f492c92da32
+      private: true
+    -
+      id: workplace-process-pack-registry-registries-process-packs-yaml
+      path: <private-workplace-ref>/registries/process-packs.yaml
+      kind: workplace-process-pack-registry
+      checksum: c5ae1fa980256518525031601faee5ffccfdc861d738c1744098051ac59127c0
+      private: true
+    -
+      id: workplace-tool-registry-registries-tools-yaml
+      path: <private-workplace-ref>/registries/tools.yaml
+      kind: workplace-tool-registry
+      checksum: f25bf1330c3f4c473a031d1803c5a68db2318d7dfb53abe0fb077028d03f2355
+      private: true
+    -
+      id: workplace-mcp-registry-registries-mcp-yaml
+      path: <private-workplace-ref>/registries/mcp.yaml
+      kind: workplace-mcp-registry
+      checksum: 2b7a6db5cb9bb4319e1c26a20829de0e183bbf2eec1e9674d19227722d37b981
+      private: true
+    -
+      id: workplace-template-registry-registries-templates-yaml
+      path: <private-workplace-ref>/registries/templates.yaml
+      kind: workplace-template-registry
+      checksum: 1ce55723f093745393229a36af8be454986c5e21032bc9c796a045fd9b0c7be8
+      private: true
+    -
+      id: workplace-parameter-registry-registries-parameters-yaml
+      path: <private-workplace-ref>/registries/parameters.yaml
+      kind: workplace-parameter-registry
+      checksum: 1ba3b3c77ac985aa2599ce1de0d2c6d8bd29a37a31b36c28b561d684cef621d6
+      private: true
+    -
+      id: official-pack-processforge-official-content-workflow-package
+      path: <distribution-pack>/processforge.official.content-workflow/package.yaml
+      kind: official-process-pack
+      checksum: aff345f1214537b73f88a1d8410e40ab6e7b4ef6b01d2d704c61ae867e7fd91a
+      private: true
+    -
+      id: official-pack-processforge-official-software-development-package
+      path: <distribution-pack>/processforge.official.software-development/package.yaml
+      kind: official-process-pack
+      checksum: bac70e62ac7f682c7ee536918f9c2d42b3cfa4b5d5bb163293da0f2d9286911a
+      private: true
+    -
+      id: official-pack-processforge-official-software-development-registry-entry
+      path: <distribution-pack>/processforge.official.software-development/project-classifiers/registry-entry.yaml
+      kind: official-process-pack
+      checksum: afa5cfe932f91e49710fb2a1b52c623f14388180d8a189c9ff37abf7d5dd6f1d
+      private: true
+    -
+      id: official-pack-processforge-official-software-development-software-web
+      path: <distribution-pack>/processforge.official.software-development/project-classifiers/software-web.yaml
+      kind: official-process-pack
+      checksum: 04e718bcfcee1e51f1dd2c86b692422b437ab6340d3096f407bcfedd8fa85848
+      private: true
+    -
+      id: workplace-specialization-specializations-specialization-backend-yaml
+      path: <private-workplace-ref>/specializations/specialization.backend.yaml
+      kind: workplace-specialization
+      checksum: 1b799e840623e87915d9a7c0f70a4db1c4f9874f7112863431cb2c35e18cf468
+      private: true
+    -
+      id: workplace-specialization-specializations-specialization-content-manager-yaml
+      path: <private-workplace-ref>/specializations/specialization.content-manager.yaml
+      kind: workplace-specialization
+      checksum: be0934bece069b0062aab5128e911de175446b9c922026bcbe31f020bffc4417
+      private: true
+    -
+      id: workplace-specialization-specializations-specialization-frontend-yaml
+      path: <private-workplace-ref>/specializations/specialization.frontend.yaml
+      kind: workplace-specialization
+      checksum: 95576781683497351d1a94134b0a959fe0854b07ce63cf3ac34c415da9d083bf
+      private: true
+    -
+      id: workplace-specialization-specializations-specialization-fullstack-yaml
+      path: <private-workplace-ref>/specializations/specialization.fullstack.yaml
+      kind: workplace-specialization
+      checksum: 09867ecf65618bf763b27c527f6572755f3154e762cddca96a5134b1ee82804c
+      private: true
+    -
+      id: workplace-specialization-specializations-specialization-seo-geo-specialist-yaml
+      path: <private-workplace-ref>/specializations/specialization.seo-geo-specialist.yaml
+      kind: workplace-specialization
+      checksum: 7e666c7904897aba140db343c68050dd6bc8b4b7a2dbd9f8c7c628d6aa872efe
+      private: true
+    -
+      id: project-parameters
+      path: .pf/parameters.yaml
+      kind: project-parameters
+      checksum: 092b8946be87585ed3ca0089cbc503d6209441208859971fa2f219116c8e6337
+    -
+      id: package-override-packages-project-wt-multicategories-joomla-plugin-yaml
+      path: .pf/packages/project.wt-multicategories-joomla-plugin.yaml
+      kind: package-override
+      checksum: 8048b4552f05a528c35401e28418092a3d9e7f998c6170b98581719476e52975
+    -
+      id: registry-registries-project-classifiers-yaml
+      path: .pf/registries/project-classifiers.yaml
+      kind: registry
+      checksum: d1c26c4994bae658594d9dcfae02f8879a318db78a679dd3f06d6f492c92da32
+requirements_fingerprint:
+  process_forge_yaml: 'sha256:ca58cf10c7c0b24af08c6ba37ddcaccbdef61e192c9ef263109bf96c74d69734'
+  process_forge_local_yaml: 'sha256:365298c09f9d60e3bfeae342382f97b857f80917678cb4dbe08d9444770d361c'
+context_requirements:
+  knowledge_packages:
+    -
+      id: processforge.core
+      constraint: ^1.0
+      required: true
+    -
+      id: project.wt-multicategories-joomla-plugin
+      constraint: 1.0.0
+      required: true
+  knowledge_resources:
+    []
+  template_packages:
+    []
+  tools:
+    []
+  platform_contracts:
+    -
+      id: joomla
+      required: true
+    -
+      id: joomla-joomshopping
+      required: true
+    -
+      id: joomla-radicalmart
+      required: true
+    -
+      id: joomla-virtuemart
+      required: true
+context_policy:
+  on_session_start:
+    check_freshness: true
+    check_update_candidates: if_due
+    if_fresh: continue
+    if_fresh_with_updates: notify
+    if_stale: ask_operator
+    if_broken: block
+  auto_refresh:
+    enabled: false
+    allow_patch: true
+    allow_minor: false
+    allow_major: false
+    allow_rolling_resources: false
+  active_run_behavior:
+    existing_capsules: pin_existing
+    new_capsules: require_fresh_snapshot
+  organized_mode:
+    stale_snapshot_action: needs_operator
+resolved_parameters:
+  repo_root_pattern_ref: 'extension_project_repositories/{PROJECT_NAME}'
+  test_instance_pattern_ref: 'joomla_test_instances/{PROJECT_NAME}'
+  default_admin_auth_ref: joomla.default_admin.codex
+parameter_resolution:
+  status: resolved
+  sources:
+    -
+      id: 'platform:platform.joomla'
+      layer: platform
+      keys:
+        - default_admin_auth_ref
+        - repo_root_pattern_ref
+        - test_instance_pattern_ref
+      private: false
+  provenance:
+    repo_root_pattern_ref:
+      source: 'platform:platform.joomla'
+      action: add
+    test_instance_pattern_ref:
+      source: 'platform:platform.joomla'
+      action: add
+    default_admin_auth_ref:
+      source: 'platform:platform.joomla'
+      action: add
+  conflicts:
+    []
+resolved_context:
+  selected_platform:
+    - platform.joomla
+    - platform.joomla-joomshopping
+    - platform.joomla-radicalmart
+    - platform.joomla-virtuemart
+  platform_stack:
+    -
+      id: platform.joomla
+      platform: joomla
+      source: workplace
+      status: available
+      relation: selected
+      required: true
+      inherited_by: null
+      extends:
+        []
+      requires_platforms:
+        []
+    -
+      id: platform.joomla-joomshopping
+      platform: joomla-joomshopping
+      source: workplace
+      status: available
+      relation: selected
+      required: true
+      inherited_by: null
+      extends:
+        - platform.joomla
+      requires_platforms:
+        []
+    -
+      id: platform.joomla-radicalmart
+      platform: joomla-radicalmart
+      source: workplace
+      status: available
+      relation: selected
+      required: true
+      inherited_by: null
+      extends:
+        - platform.joomla
+      requires_platforms:
+        []
+    -
+      id: platform.joomla-virtuemart
+      platform: joomla-virtuemart
+      source: workplace
+      status: available
+      relation: selected
+      required: true
+      inherited_by: null
+      extends:
+        - platform.joomla
+      requires_platforms:
+        []
+  selected_specializations:
+    []
+  available_knowledge_packages:
+    - docs.php
+    - docs.web.accessibility
+    - docs.web.css
+    - docs.web.html
+    - docs.web.javascript
+    - docs.web.performance
+  activated_knowledge_packages:
+    - docs.php
+    - docs.web.accessibility
+    - docs.web.css
+    - docs.web.html
+    - docs.web.javascript
+    - docs.web.performance
+  excluded_knowledge_packages:
+    []
+  available_tools:
+    []
+  activated_tools:
+    []
+  excluded_tools:
+    []
+  available_mcp:
+    []
+  activated_mcp:
+    []
+  excluded_mcp:
+    []
+  activated_templates:
+    []
+  excluded_templates:
+    []
+  provided_capabilities:
+    - architecture
+    - content_planning
+    - editorial_review
+    - investigation
+    - process_coordination
+    - repository_read
+    - repository_write
+    - research
+    - review
+    - schema_validation
+    - test_running
+    - writing
+  applied_project_overrides:
+    []
+  effective_resources:
+    -
+      kind: knowledge_packages
+      id: docs.php
+      status: activated
+    -
+      kind: knowledge_packages
+      id: docs.web.accessibility
+      status: activated
+    -
+      kind: knowledge_packages
+      id: docs.web.css
+      status: activated
+    -
+      kind: knowledge_packages
+      id: docs.web.html
+      status: activated
+    -
+      kind: knowledge_packages
+      id: docs.web.javascript
+      status: activated
+    -
+      kind: knowledge_packages
+      id: docs.web.performance
+      status: activated
+  effective_fingerprints:
+    {}
+  resolution_reasons:
+    -
+      source: processforge.official.software-development
+      reason: active official process pack knowledge packages merged
+  conflicts:
+    []
+  status: resolved
+  process: ""
+  active_resource_profile:
+    selected_platform:
+      - platform.joomla
+      - platform.joomla-joomshopping
+      - platform.joomla-radicalmart
+      - platform.joomla-virtuemart
+    platform_stack:
+      -
+        id: platform.joomla
+        platform: joomla
+        source: workplace
+        status: available
+        relation: selected
+        required: true
+        inherited_by: null
+        extends:
+          []
+        requires_platforms:
+          []
+      -
+        id: platform.joomla-joomshopping
+        platform: joomla-joomshopping
+        source: workplace
+        status: available
+        relation: selected
+        required: true
+        inherited_by: null
+        extends:
+          - platform.joomla
+        requires_platforms:
+          []
+      -
+        id: platform.joomla-radicalmart
+        platform: joomla-radicalmart
+        source: workplace
+        status: available
+        relation: selected
+        required: true
+        inherited_by: null
+        extends:
+          - platform.joomla
+        requires_platforms:
+          []
+      -
+        id: platform.joomla-virtuemart
+        platform: joomla-virtuemart
+        source: workplace
+        status: available
+        relation: selected
+        required: true
+        inherited_by: null
+        extends:
+          - platform.joomla
+        requires_platforms:
+          []
+    selected_specializations:
+      []
+    available_knowledge_packages:
+      - docs.php
+      - docs.web.accessibility
+      - docs.web.css
+      - docs.web.html
+      - docs.web.javascript
+      - docs.web.performance
+    activated_knowledge_packages:
+      - docs.php
+      - docs.web.accessibility
+      - docs.web.css
+      - docs.web.html
+      - docs.web.javascript
+      - docs.web.performance
+    excluded_knowledge_packages:
+      []
+    available_tools:
+      []
+    activated_tools:
+      []
+    excluded_tools:
+      []
+    available_mcp:
+      []
+    activated_mcp:
+      []
+    excluded_mcp:
+      []
+    activated_templates:
+      []
+    excluded_templates:
+      []
+    provided_capabilities:
+      - architecture
+      - content_planning
+      - editorial_review
+      - investigation
+      - process_coordination
+      - repository_read
+      - repository_write
+      - research
+      - review
+      - schema_validation
+      - test_running
+      - writing
+    applied_project_overrides:
+      []
+    effective_resources:
+      -
+        kind: knowledge_packages
+        id: docs.php
+        status: activated
+      -
+        kind: knowledge_packages
+        id: docs.web.accessibility
+        status: activated
+      -
+        kind: knowledge_packages
+        id: docs.web.css
+        status: activated
+      -
+        kind: knowledge_packages
+        id: docs.web.html
+        status: activated
+      -
+        kind: knowledge_packages
+        id: docs.web.javascript
+        status: activated
+      -
+        kind: knowledge_packages
+        id: docs.web.performance
+        status: activated
+    effective_fingerprints:
+      {}
+    resolution_reasons:
+      -
+        source: processforge.official.software-development
+        reason: active official process pack knowledge packages merged
+    conflicts:
+      []
+  execution_route:
+    process: ""
+    stages:
+      []
+    required_capabilities:
+      []
+    capability_requirements:
+      []
+    required_artifacts:
+      []
+    required_evidence:
+      []
+    acceptance_criteria:
+      []
+  capability_resolution:
+    satisfied:
+      []
+    unsatisfied:
+      []
+active_resource_profile:
+  selected_platform:
+    - platform.joomla
+    - platform.joomla-joomshopping
+    - platform.joomla-radicalmart
+    - platform.joomla-virtuemart
+  platform_stack:
+    -
+      id: platform.joomla
+      platform: joomla
+      source: workplace
+      status: available
+      relation: selected
+      required: true
+      inherited_by: null
+      extends:
+        []
+      requires_platforms:
+        []
+    -
+      id: platform.joomla-joomshopping
+      platform: joomla-joomshopping
+      source: workplace
+      status: available
+      relation: selected
+      required: true
+      inherited_by: null
+      extends:
+        - platform.joomla
+      requires_platforms:
+        []
+    -
+      id: platform.joomla-radicalmart
+      platform: joomla-radicalmart
+      source: workplace
+      status: available
+      relation: selected
+      required: true
+      inherited_by: null
+      extends:
+        - platform.joomla
+      requires_platforms:
+        []
+    -
+      id: platform.joomla-virtuemart
+      platform: joomla-virtuemart
+      source: workplace
+      status: available
+      relation: selected
+      required: true
+      inherited_by: null
+      extends:
+        - platform.joomla
+      requires_platforms:
+        []
+  selected_specializations:
+    []
+  available_knowledge_packages:
+    - docs.php
+    - docs.web.accessibility
+    - docs.web.css
+    - docs.web.html
+    - docs.web.javascript
+    - docs.web.performance
+  activated_knowledge_packages:
+    - docs.php
+    - docs.web.accessibility
+    - docs.web.css
+    - docs.web.html
+    - docs.web.javascript
+    - docs.web.performance
+  excluded_knowledge_packages:
+    []
+  available_tools:
+    []
+  activated_tools:
+    []
+  excluded_tools:
+    []
+  available_mcp:
+    []
+  activated_mcp:
+    []
+  excluded_mcp:
+    []
+  activated_templates:
+    []
+  excluded_templates:
+    []
+  provided_capabilities:
+    - architecture
+    - content_planning
+    - editorial_review
+    - investigation
+    - process_coordination
+    - repository_read
+    - repository_write
+    - research
+    - review
+    - schema_validation
+    - test_running
+    - writing
+  applied_project_overrides:
+    []
+  effective_resources:
+    -
+      kind: knowledge_packages
+      id: docs.php
+      status: activated
+    -
+      kind: knowledge_packages
+      id: docs.web.accessibility
+      status: activated
+    -
+      kind: knowledge_packages
+      id: docs.web.css
+      status: activated
+    -
+      kind: knowledge_packages
+      id: docs.web.html
+      status: activated
+    -
+      kind: knowledge_packages
+      id: docs.web.javascript
+      status: activated
+    -
+      kind: knowledge_packages
+      id: docs.web.performance
+      status: activated
+  effective_fingerprints:
+    {}
+  resolution_reasons:
+    -
+      source: processforge.official.software-development
+      reason: active official process pack knowledge packages merged
+  conflicts:
+    []
+execution_route:
+  process: ""
+  stages:
+    []
+  required_capabilities:
+    []
+  capability_requirements:
+    []
+  required_artifacts:
+    []
+  required_evidence:
+    []
+  acceptance_criteria:
+    []
+capability_resolution:
+  satisfied:
+    []
+  unsatisfied:
+    []
+selected_specializations:
+  []
+applied_project_overrides:
+  []
+effective_fingerprints:
+  {}
+resolution_reasons:
+  -
+    source: processforge.official.software-development
+    reason: active official process pack knowledge packages merged
+conflicts:
+  []
+resolved:
+  knowledge_packages:
+    -
+      id: docs.php
+      constraint: declared
+    -
+      id: docs.web.accessibility
+      constraint: declared
+    -
+      id: docs.web.css
+      constraint: declared
+    -
+      id: docs.web.html
+      constraint: declared
+    -
+      id: docs.web.javascript
+      constraint: declared
+    -
+      id: docs.web.performance
+      constraint: declared
+    -
+      id: processforge.core
+      constraint: declared
+    -
+      id: project.wt-multicategories-joomla-plugin
+      constraint: declared
+  knowledge_resources:
+    -
+      id: 'project.wt-multicategories-joomla-plugin:project-profile'
+      kind: note_collection
+      package_id: project.wt-multicategories-joomla-plugin
+      requirement: recommended
+      versioning_mode: rolling_index
+      retention_policy: replace_in_place
+      instance_id: 'project.wt-multicategories-joomla-plugin:project-profile@current'
+      path_ref:
+        package: project.wt-multicategories-joomla-plugin
+        relative_path: artifacts/project-profile.md
+      fingerprint:
+        type: resource_record_sha256
+        value: 'sha256:60f730ffdf4320e6db777bd32135a1d6989895523ac7ea16bc3405858887e47f'
+      reproducibility:
+        level: best_effort
+        reason: resource retention policy is replace_in_place
+      snapshot_behavior:
+        on_new_version: mark_stale
+        on_current_generation_changed: mark_stale
+        on_instance_missing: broken
+        reproducibility: best_effort
+    -
+      id: 'project.wt-multicategories-joomla-plugin:project-artifacts'
+      kind: reference
+      package_id: project.wt-multicategories-joomla-plugin
+      requirement: recommended
+      versioning_mode: rolling_index
+      retention_policy: replace_in_place
+      instance_id: 'project.wt-multicategories-joomla-plugin:project-artifacts@current'
+      path_ref:
+        package: project.wt-multicategories-joomla-plugin
+        relative_path: artifacts
+      fingerprint:
+        type: resource_record_sha256
+        value: 'sha256:202f26a3b9f160526e62153dfbecc7be517bf2cda86c95ab334392d2a0e9a0b6'
+      reproducibility:
+        level: best_effort
+        reason: resource retention policy is replace_in_place
+      snapshot_behavior:
+        on_new_version: mark_stale
+        on_current_generation_changed: mark_stale
+        on_instance_missing: broken
+        reproducibility: best_effort
+  available_knowledge_resources:
+    -
+      id: 'project.wt-multicategories-joomla-plugin:project-profile'
+      kind: note_collection
+      package_id: project.wt-multicategories-joomla-plugin
+      requirement: recommended
+      versioning_mode: rolling_index
+      retention_policy: replace_in_place
+      instance_id: 'project.wt-multicategories-joomla-plugin:project-profile@current'
+      path_ref:
+        package: project.wt-multicategories-joomla-plugin
+        relative_path: artifacts/project-profile.md
+      fingerprint:
+        type: resource_record_sha256
+        value: 'sha256:60f730ffdf4320e6db777bd32135a1d6989895523ac7ea16bc3405858887e47f'
+      reproducibility:
+        level: best_effort
+        reason: resource retention policy is replace_in_place
+      snapshot_behavior:
+        on_new_version: mark_stale
+        on_current_generation_changed: mark_stale
+        on_instance_missing: broken
+        reproducibility: best_effort
+    -
+      id: 'project.wt-multicategories-joomla-plugin:project-artifacts'
+      kind: reference
+      package_id: project.wt-multicategories-joomla-plugin
+      requirement: recommended
+      versioning_mode: rolling_index
+      retention_policy: replace_in_place
+      instance_id: 'project.wt-multicategories-joomla-plugin:project-artifacts@current'
+      path_ref:
+        package: project.wt-multicategories-joomla-plugin
+        relative_path: artifacts
+      fingerprint:
+        type: resource_record_sha256
+        value: 'sha256:202f26a3b9f160526e62153dfbecc7be517bf2cda86c95ab334392d2a0e9a0b6'
+      reproducibility:
+        level: best_effort
+        reason: resource retention policy is replace_in_place
+      snapshot_behavior:
+        on_new_version: mark_stale
+        on_current_generation_changed: mark_stale
+        on_instance_missing: broken
+        reproducibility: best_effort
+  template_packages:
+    []
+  templates:
+    []
+  excluded_templates:
+    []
+  tools:
+    []
+  excluded_tools:
+    []
+  platform_contracts:
+    -
+      id: joomla
+      required: true
+    -
+      id: joomla-joomshopping
+      required: true
+    -
+      id: joomla-radicalmart
+      required: true
+    -
+      id: joomla-virtuemart
+      required: true
+  process_packages:
+    []
+freshness:
+  status: fresh
+  checked_at: '2026-08-29T05:56:27Z'
+  stale_reasons:
+    []
+  update_available:
+    []
+  broken_refs:
+    []
+reproducibility:
+  level: best_effort
+  reasons:
+    - resource retention policy is replace_in_place
+source_fingerprints:
+  workplace_manifest: b4ae197ee92340bf4a4fef645fe47c4620c34f72c489308c61c1417bab897de3
+  package_roots_registry: 'sha256:b960454f618496ee14e35353a5de1b4cdc0ef63e05fae70f2e465baef94f3bda'
+  knowledge_roots_registry: 'sha256:39b9586bb019f272ef98faecb6b4202b01623a88ad4e995845e8f42a8c6f1ff9'
+  template_registry: 'sha256:1ce55723f093745393229a36af8be454986c5e21032bc9c796a045fd9b0c7be8'
+  tool_registry: 'sha256:f25bf1330c3f4c473a031d1803c5a68db2318d7dfb53abe0fb077028d03f2355'
+  parameters_registry: 'sha256:1ba3b3c77ac985aa2599ce1de0d2c6d8bd29a37a31b36c28b561d684cef621d6'
+  installed_subjects: 'sha256:7e1838c48fb61e63001b54d4b84b5869f92fba298c8d25386095988881b28f8f'
+knowledge_stack:
+  -
+    id: processforge.core
+    version: ^1.0
+    source: distribution
+    distribution: processforge
+  -
+    id: project.wt-multicategories-joomla-plugin
+    version: 1.0.0
+    source: project
+resolved_policies:
+  hard:
+    -
+      id: public.no_local_absolute_paths
+      value: true
+      locked: true
+    -
+      id: files.one_writer_per_scope
+      value: true
+      locked: true
+    -
+      id: secrets.public_exports_sanitized
+      value: true
+      locked: true
+    -
+      id: runtime.private
+      value: true
+      locked: true
+    -
+      id: markdown.not_machine_merge_source
+      value: true
+      locked: true
+  preferences:
+    -
+      id: templates.project_overrides_global
+      value: true
+    -
+      id: session.prefer_project_context_snapshot
+      value: true
+capabilities:
+  required:
+    []
+  optional:
+    []
+knowledge_resources:
+  selected:
+    -
+      id: 'project.wt-multicategories-joomla-plugin:project-profile'
+      resource_id: project-profile
+      package: project.wt-multicategories-joomla-plugin
+      requirement: recommended
+      kind: note_collection
+      title: Project profile and repository map
+      load_policy: when_relevant
+      index_policy: full_text
+      status: indexed
+      path_ref:
+        package: project.wt-multicategories-joomla-plugin
+        relative_path: artifacts/project-profile.md
+    -
+      id: 'project.wt-multicategories-joomla-plugin:project-artifacts'
+      resource_id: project-artifacts
+      package: project.wt-multicategories-joomla-plugin
+      requirement: recommended
+      kind: reference
+      title: Project ProcessForge artifacts
+      load_policy: on_demand
+      index_policy: metadata
+      status: indexed
+      path_ref:
+        package: project.wt-multicategories-joomla-plugin
+        relative_path: artifacts
+  required:
+    []
+  recommended:
+    -
+      id: 'project.wt-multicategories-joomla-plugin:project-profile'
+      resource_id: project-profile
+      package: project.wt-multicategories-joomla-plugin
+      requirement: recommended
+      kind: note_collection
+      title: Project profile and repository map
+      load_policy: when_relevant
+      index_policy: full_text
+      status: indexed
+      path_ref:
+        package: project.wt-multicategories-joomla-plugin
+        relative_path: artifacts/project-profile.md
+    -
+      id: 'project.wt-multicategories-joomla-plugin:project-artifacts'
+      resource_id: project-artifacts
+      package: project.wt-multicategories-joomla-plugin
+      requirement: recommended
+      kind: reference
+      title: Project ProcessForge artifacts
+      load_policy: on_demand
+      index_policy: metadata
+      status: indexed
+      path_ref:
+        package: project.wt-multicategories-joomla-plugin
+        relative_path: artifacts
+  missing_required:
+    []
+  missing_recommended:
+    []
+tools:
+  required:
+    []
+  recommended:
+    []
+  activated:
+    []
+  excluded:
+    []
+  source: workplace-registry
+mcp:
+  required:
+    []
+  recommended:
+    []
+  activated:
+    []
+  excluded:
+    []
+  source: workplace-registry
+templates:
+  project:
+    []
+  required:
+    []
+  recommended:
+    []
+  activated:
+    []
+  excluded:
+    []
+  source: workplace-registry
+processes:
+  enabled:
+    []
+packages:
+  selected:
+    []
+workplace_coordination:
+  project_mode: inherit
+  workplace_default_project_mode: organized
+  effective_mode: organized
+  director_enabled: true
+  director_available_at_workplace: true
+  director_office_exists: true
+  director_required: true
+  director_process: agent-director-supervision
+  director_inbox:
+    enabled: true
+    submit_required: false
+    allowed_message_types:
+      - worker_report
+      - error_report
+      - decision_request
+session:
+  startup_read_order:
+    - .pf/AGENTS.md
+    - .pf/process-forge.yaml
+    - .pf/contexts/project-context.snapshot.md
+    - current assignment
+    - relevant logs/reviews/handoffs
+  telemetry_root: .pf/runtime/telemetry
+  events_log: .pf/runtime/events/events.ndjson

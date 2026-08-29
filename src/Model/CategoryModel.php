@@ -94,19 +94,11 @@ class CategoryModel extends ContactCategoryModel
         $db     = $this->getDatabase();
 
         /** @var \Joomla\Database\DatabaseQuery $query */
-        $query = $db->getQuery(true);
+        $query = $db->createQuery();
 
         $query->select($this->getState('list.select', 'a.*'))
-            ->select(
-                'CASE WHEN CHAR_LENGTH(' . $db->quoteName('a.alias') . ')'
-                . ' THEN CONCAT_WS(\':\', ' . $db->quoteName('a.id') . ', ' . $db->quoteName('a.alias') . ')'
-                . ' ELSE ' . $db->quoteName('a.id') . ' END AS ' . $db->quoteName('slug')
-            )
-            ->select(
-                'CASE WHEN CHAR_LENGTH(' . $db->quoteName('c.alias') . ')'
-                . ' THEN CONCAT_WS(\':\', ' . $db->quoteName('c.id') . ', ' . $db->quoteName('c.alias') . ')'
-                . ' ELSE ' . $db->quoteName('c.id') . ' END AS ' . $db->quoteName('catslug')
-            )
+            ->select($this->getSlugColumn($query, 'a.id', 'a.alias') . ' AS slug')
+            ->select($this->getSlugColumn($query, 'c.id', 'c.alias') . ' AS catslug')
             ->from($db->quoteName('#__contact_details', 'a'))
             ->leftJoin($db->quoteName('#__categories', 'c') . ' ON c.id = a.catid')
             ->whereIn($db->quoteName('a.access'), $groups);
@@ -135,7 +127,7 @@ class CategoryModel extends ContactCategoryModel
         }
         elseif ($includeSubcategories)
         {
-            $subQuery = $db->getQuery(true)
+            $subQuery = $db->createQuery()
                 ->select($db->quoteName('sub.id'))
                 ->from($db->quoteName('#__categories', 'sub'))
                 ->join(
@@ -224,6 +216,30 @@ class CategoryModel extends ContactCategoryModel
         }
 
         return $query;
+    }
+
+    /**
+     * Generate a database-portable slug column expression.
+     *
+     * Joomla's implementation is private, so the overriding model must keep
+     * this small helper in sync with the core CategoryModel.
+     *
+     * @param   QueryInterface  $query  Current query instance.
+     * @param   string          $id     Column id name.
+     * @param   string          $alias  Column alias name.
+     *
+     * @return  string
+     *
+     * @since   1.2.1
+     */
+    private function getSlugColumn(QueryInterface $query, string $id, string $alias): string
+    {
+        return 'CASE WHEN '
+            . $query->charLength($alias, '!=', '0')
+            . ' THEN '
+            . $query->concatenate([$query->castAs('CHAR', $id), $alias], ':')
+            . ' ELSE '
+            . $query->castAs('CHAR', $id) . ' END';
     }
 
 }

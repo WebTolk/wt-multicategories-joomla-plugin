@@ -1,0 +1,35 @@
+{
+  "name": "System - WT Multicategories",
+  "version": "1.2.1",
+  "root": "../..",
+  "author": "Sergey Tolkachyov",
+  "authorEmail": "info@web-tolk.ru",
+  "link": "https://web-tolk.ru",
+  "copyright": "Copyright (c) %s Sergey Tolkachyov. All rights reserved.",
+  "projectDateStart": "2025",
+  "packageDir": ".packages",
+  "packageNamePattern": "{name}_{version}.zip",
+  "phpStormCopyrightsPath": ".idea/copyright",
+  "packageJsonPath": "build/package.json",
+  "exclude": [
+    ".pf/",
+    ".codex/",
+    ".playwright-mcp/"
+  ],
+  "replace": {
+    "versionDocblock": true,
+    "versionXml": true,
+    "versionPackageJson": true,
+    "dateDocblock": true,
+    "dateXml": true,
+    "creationDateXml": true,
+    "author": true,
+    "authorEmail": true,
+    "link": true,
+    "package": true,
+    "copyright": true,
+    "sinceResetToken": "__DEPLOY_VERSION__",
+    "deployDateToken": "__DEPLOY_DATE__",
+    "deployVersionToken": "__DEPLOY_VERSION__"
+  }
+}

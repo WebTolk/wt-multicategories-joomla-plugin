@@ -1,0 +1,37 @@
+schema_version: 1
+id: userfactory-contact-fix-20260829
+title: Fix inactive Contact MVCFactory override
+process: software-feature-development
+status: completed
+created_at: '2026-08-29T06:42:44Z'
+updated_at: '2026-08-29T07:08:43Z'
+objective: Prevent WT Multicategories from replacing com_contact MVCFactory when the contact multicategory field is not configured, then build and verify the extension on Joomla.local.
+platform: platform.joomla
+selected_specializations:
+  - specialization.fullstack
+scope:
+  type: project
+  project_root: .
+tasks:
+  -
+    id: task-fix-contact-mvcfactory-guard
+    assignment: .pf/assignments/task-fix-contact-mvcfactory-guard.yaml
+    status: done
+    order: 1
+    blocking: true
+  -
+    id: task-exclude-playwright-package-artifacts
+    assignment: .pf/assignments/task-exclude-playwright-package-artifacts.yaml
+    status: done
+    order: 2
+    blocking: true
+final_artifacts:
+  - .pf/runs/userfactory-contact-fix-20260829/summary.md
+  - .pf/handoffs/runs/userfactory-contact-fix-20260829-handoff.md
+events:
+  emitted:
+    - run.created
+    - run.summary.created
+    - run.completed
+privacy:
+  public_safe: true

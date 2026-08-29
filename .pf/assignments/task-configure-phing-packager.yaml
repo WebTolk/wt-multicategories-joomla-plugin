@@ -1,0 +1,66 @@
+schema_version: 1
+id: task-configure-phing-packager
+title: Configure Phing packager
+run_id: tooling-phing-20260829
+process: software-feature-development
+status: done
+created_at: '2026-08-29T06:15:15Z'
+updated_at: '2026-08-29T06:16:40Z'
+objective: Add project Phing bridge and package config, then verify release ZIP build
+platform: joomla
+selected_specializations:
+  - specialization.fullstack
+order: 1
+dependencies:
+  blocked_by:
+    []
+  blocks:
+    []
+iterations:
+  []
+result:
+  status: done
+  summary: Phing packaging configured with project bridge and .pf/build package config; release ZIP build verified through shared packager.
+  artifacts:
+    - .pf/artifacts/phing-packager-setup-report.md
+execution_mode:
+  kind: implementation
+  code_changes_allowed: true
+  artifact_changes_allowed: true
+  requires_review: true
+allowed_files:
+  - phing.xml
+  - .pf/build/package.config.json
+  - .pf/artifacts/phing-packager-setup-report.md
+ownership:
+  owner_id: codex
+  owner_label: worker-codex
+  role: fullstack
+  writer: true
+  owned_files:
+    - phing.xml
+    - .pf/build/package.config.json
+    - .pf/artifacts/phing-packager-setup-report.md
+  owned_globs:
+    []
+non_overlap:
+  policy: block_on_write_overlap
+  active_parallel_tasks:
+    []
+  current_write_scope:
+    - phing.xml
+    - .pf/build/package.config.json
+    - .pf/artifacts/phing-packager-setup-report.md
+  rule: Do not edit files owned by active parallel tasks.
+required_outputs:
+  -
+    id: phing-packager-setup-report
+    type: unspecified
+    required: true
+    path: .pf/artifacts/phing-packager-setup-report.md
+expected_report:
+  language: ru
+  artifact: .pf/artifacts/phing-packager-setup-report.md
+  format: concise_markdown
+  include:
+    - phing-packager-setup-report

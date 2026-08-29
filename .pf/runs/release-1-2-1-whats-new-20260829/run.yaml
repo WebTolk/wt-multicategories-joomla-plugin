@@ -1,0 +1,31 @@
+schema_version: 1
+id: release-1-2-1-whats-new-20260829
+title: Add 1.2.1 What's New copy
+process: software-feature-development
+status: completed
+created_at: '2026-08-29T07:40:01Z'
+updated_at: '2026-08-29T07:42:44Z'
+objective: Add concise end-user What's New descriptions in English and Russian, rebuild the 1.2.1 package, and verify the packaged language files.
+platform: platform.joomla
+selected_specializations:
+  - specialization.fullstack
+scope:
+  type: project
+  project_root: .
+tasks:
+  -
+    id: task-update-whats-new-1-2-1
+    assignment: .pf/assignments/task-update-whats-new-1-2-1.yaml
+    status: done
+    order: 1
+    blocking: true
+final_artifacts:
+  - .pf/runs/release-1-2-1-whats-new-20260829/summary.md
+  - .pf/handoffs/runs/release-1-2-1-whats-new-20260829-handoff.md
+events:
+  emitted:
+    - run.created
+    - run.summary.created
+    - run.completed
+privacy:
+  public_safe: true

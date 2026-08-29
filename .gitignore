@@ -1,3 +1,12 @@
 .idea
+.serena/
+.playwright-mcp/
 .phing
 .packages
+.pf/process-forge.local.yaml
+.pf/runtime/
+.pf/private-notes/
+.pf/cache/
+.secrets/
+*.tmp
+*.bak

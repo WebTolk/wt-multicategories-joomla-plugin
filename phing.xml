@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="WT Multicategories Packaging" default="1. Info">
+    <property name="config" value=".pf/build/package.config.json"/>
+    <property name="targetRoot" value="."/>
+    <import file="../../.agents/tools/phing-packager/build.xml"/>
+</project>

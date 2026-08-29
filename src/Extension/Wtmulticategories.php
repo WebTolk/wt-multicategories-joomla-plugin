@@ -110,20 +110,21 @@ class Wtmulticategories extends CMSPlugin implements SubscriberInterface
      */
     public function onAfterExtensionBoot(EventInterface $event)
     {
-        // Work only on frontend
-	    if (!$this->getApplication()->isClient('site') && !($this->getApplication()->isClient('administrator') && $this->params->get('work_in_admin', false)))
-	    {
-		    return;
-	    }
-
         // Test that a component is being booted.
         if ($event->getArgument('type') !== ComponentInterface::class)
         {
             return;
         }
 
+        $extensionName = strtolower($event->getArgument('extensionName'));
+
         // Test that this is com_content or com_contact component.
-        if (!in_array(strtolower($event->getArgument('extensionName')), self::$allowedExtensions))
+        if (!in_array($extensionName, self::$allowedExtensions, true))
+        {
+            return;
+        }
+
+        if (!$this->shouldOverrideMvcFactory($extensionName))
         {
             return;
         }
@@ -143,7 +144,7 @@ class Wtmulticategories extends CMSPlugin implements SubscriberInterface
             return;
         }
 
-        $extensionName = ucfirst($event->getArgument('extensionName'));
+        $extensionName = ucfirst($extensionName);
 
         // Register the custom MVC factory. Here an anonymous class is used,
         // but you can use a concrete class.
@@ -185,6 +186,34 @@ class Wtmulticategories extends CMSPlugin implements SubscriberInterface
                 return $factory;
             }
         );
+    }
+
+    /**
+     * Check whether the current component needs the custom MVC factory.
+     *
+     * @param   string  $extensionName  Component name without the com_ prefix.
+     *
+     * @return  bool
+     *
+     * @since   __DEPLOY_VERSION__
+     */
+    private function shouldOverrideMvcFactory(string $extensionName): bool
+    {
+        $app = $this->getApplication();
+
+        if ($extensionName === 'contact')
+        {
+            return $app->isClient('site')
+                && (int) $this->params->get('multicategories_com_contact_field_id', 0) > 0;
+        }
+
+        if ($extensionName !== 'content' || (int) $this->params->get('multicategories_com_content_field_id', 0) <= 0)
+        {
+            return false;
+        }
+
+        return $app->isClient('site')
+            || ($app->isClient('administrator') && $this->params->get('work_in_admin', false));
     }
 
     /**

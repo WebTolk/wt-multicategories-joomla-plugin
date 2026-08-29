@@ -1,0 +1,214 @@
+schema_version: 1
+process_forge:
+  version: 1.0.0
+  version_constraint: ^1.0
+  mode: file_only
+  install_mode: linked
+  distribution:
+    id: processforge
+    source: workplace
+  runner_required: false
+  backend_required: false
+project:
+  id: wt-multicategories-joomla-plugin
+  name: wt-multicategories-joomla-plugin
+  type: joomla-extension
+specializations:
+  - specialization.fullstack
+flow:
+  root: .pf
+  manifest: .pf/process-forge.yaml
+  local_config: .pf/process-forge.local.yaml
+workplace:
+  reference: local_file
+  local_config: .pf/process-forge.local.yaml
+coordination:
+  mode: inherit
+  director:
+    use_workplace_director: true
+    inbox_submit_required: false
+detected:
+  status: classified
+  languages:
+    []
+  platforms:
+    - joomla
+    - joomla-joomshopping
+    - joomla-radicalmart
+    - joomla-virtuemart
+  project_kind:
+    - software.php-composer
+  tags:
+    - software
+  loaded_classifiers:
+    - processforge.official.software-web.classifier
+  matched_rules:
+    -
+      classifier: processforge.official.software-web.classifier
+      rule: processforge.official.rule.composer-marker
+      confidence: high
+      source: software-web.yaml
+platform_contracts:
+  -
+    id: platform.joomla
+    platform: joomla
+    source: workplace
+    status: available
+    registry_entry: joomla
+    required_contract: true
+    relation: selected
+    inherited_by: null
+    extends:
+      []
+    requires_platforms:
+      []
+    required_capabilities:
+      []
+    required:
+      knowledge_packages:
+        []
+      tools:
+        []
+      mcp:
+        []
+      templates:
+        []
+    recommended:
+      knowledge_packages:
+        []
+      tools:
+        []
+      mcp:
+        []
+      templates:
+        []
+    optional:
+      knowledge_packages:
+        []
+      tools:
+        []
+      mcp:
+        []
+      templates:
+        []
+    parameters:
+      repo_root_pattern_ref: 'extension_project_repositories/{PROJECT_NAME}'
+      test_instance_pattern_ref: 'joomla_test_instances/{PROJECT_NAME}'
+      default_admin_auth_ref: joomla.default_admin.codex
+platform_stack:
+  -
+    id: platform.joomla
+    platform: joomla
+    source: workplace
+    status: available
+    relation: selected
+    required: true
+    inherited_by: null
+    extends:
+      []
+    requires_platforms:
+      []
+paths:
+  processes: processes
+  packages: packages
+  templates: templates
+  assignments: assignments
+  artifacts: artifacts
+  contexts: contexts
+  logs: logs
+  handoffs: handoffs
+  reviews: reviews
+  adr: adr
+  schemas: schemas
+  registries: registries
+  runtime: runtime
+  hooks: hooks.yaml
+processes:
+  -
+    id: software-feature-development
+    path: packs/official/software-development/processes/software-feature-development.yaml
+knowledge_stack:
+  -
+    id: processforge.core
+    version: ^1.0
+    source: distribution
+    distribution: processforge
+  -
+    id: project.wt-multicategories-joomla-plugin
+    version: 1.0.0
+    source: project
+parameters:
+  {}
+context_requirements:
+  knowledge_packages:
+    -
+      id: processforge.core
+      constraint: ^1.0
+      required: true
+    -
+      id: project.wt-multicategories-joomla-plugin
+      constraint: 1.0.0
+      required: true
+  knowledge_resources:
+    []
+  template_packages:
+    []
+  templates:
+    []
+  tools:
+    []
+  platform_contracts:
+    -
+      id: joomla
+      required: true
+  processes:
+    -
+      id: software-feature-development
+      required: true
+context_policy:
+  on_session_start:
+    check_freshness: true
+    check_update_candidates: if_due
+    if_fresh: continue
+    if_fresh_with_updates: notify
+    if_stale: ask_operator
+    if_broken: block
+  auto_refresh:
+    enabled: false
+    allow_patch: true
+    allow_minor: false
+    allow_major: false
+    allow_rolling_resources: false
+  active_run_behavior:
+    existing_capsules: pin_existing
+    new_capsules: require_fresh_snapshot
+  organized_mode:
+    stale_snapshot_action: needs_operator
+required_capabilities:
+  []
+optional_capabilities:
+  []
+selected_resources:
+  required:
+    knowledge_packages:
+      []
+    tools:
+      []
+    mcp:
+      []
+    templates:
+      []
+  recommended:
+    knowledge_packages:
+      []
+    tools:
+      []
+    mcp:
+      []
+    templates:
+      []
+policies:
+  one_writer_per_file_scope: true
+  approved_artifacts_are_protected: true
+  execution_context_is_immutable: true
+  public_files_must_not_contain_local_absolute_paths: true

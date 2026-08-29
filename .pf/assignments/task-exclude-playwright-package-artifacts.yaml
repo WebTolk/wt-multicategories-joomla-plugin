@@ -1,0 +1,75 @@
+schema_version: 1
+id: task-exclude-playwright-package-artifacts
+title: Exclude Playwright artifacts from Joomla package
+run_id: userfactory-contact-fix-20260829
+process: software-feature-development
+status: done
+created_at: '2026-08-29T07:06:41Z'
+updated_at: '2026-08-29T07:08:18Z'
+objective: Permanently exclude Playwright MCP runtime artifacts from the Phing release package and verify a clean rebuild.
+platform: platform.joomla
+selected_specializations:
+  - specialization.fullstack
+order: 2
+dependencies:
+  blocked_by:
+    []
+  blocks:
+    []
+iterations:
+  []
+result:
+  status: done
+  summary: Added permanent Playwright runtime exclusions to git and Phing package config; marker-based release ZIP verification passed.
+  artifacts:
+    - .pf/artifacts/userfactory-contact-fix-package-assurance.md
+execution_mode:
+  kind: implementation
+  code_changes_allowed: true
+  artifact_changes_allowed: true
+  requires_review: true
+context_artifacts:
+  -
+    path: .pf/contexts/project-context.snapshot.md
+    role: input
+    required: true
+    mutable_by_worker: false
+allowed_files:
+  - .gitignore
+  - .pf/build/package.config.json
+  - .pf/artifacts/userfactory-contact-fix-package-assurance.md
+allowed_read_files:
+  - phing.xml
+ownership:
+  owner_id: task-exclude-playwright-package-artifacts
+  owner_label: worker-task-exclude-playwright-package-artifacts
+  role: ""
+  writer: true
+  owned_files:
+    - .gitignore
+    - .pf/build/package.config.json
+    - .pf/artifacts/userfactory-contact-fix-package-assurance.md
+  owned_globs:
+    []
+non_overlap:
+  policy: block_on_write_overlap
+  active_parallel_tasks:
+    []
+  current_write_scope:
+    - .gitignore
+    - .pf/build/package.config.json
+    - .pf/artifacts/userfactory-contact-fix-package-assurance.md
+  rule: Do not edit files owned by active parallel tasks.
+required_outputs:
+  -
+    id: package-assurance
+    path: .pf/artifacts/userfactory-contact-fix-package-assurance.md
+    type: markdown
+    required: true
+agent_reasoning_effort: medium
+expected_report:
+  language: ru
+  artifact: .pf/artifacts/userfactory-contact-fix-package-assurance.md
+  format: concise_markdown
+  include:
+    - package-assurance

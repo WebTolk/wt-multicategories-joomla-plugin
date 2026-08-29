@@ -1,0 +1,31 @@
+schema_version: 1
+id: pf-init-20260829
+title: ProcessForge project initialization
+process: software-feature-development
+status: completed
+created_at: '2026-08-29T06:02:07Z'
+updated_at: '2026-08-29T06:04:13Z'
+objective: Initialize ProcessForge for this Joomla fullstack software development project
+platform: joomla
+selected_specializations:
+  - specialization.fullstack
+scope:
+  type: project
+  project_root: .
+tasks:
+  -
+    id: task-pf-init-readiness
+    assignment: .pf/assignments/task-pf-init-readiness.yaml
+    status: done
+    order: 1
+    blocking: true
+final_artifacts:
+  - .pf/runs/pf-init-20260829/summary.md
+  - .pf/handoffs/runs/pf-init-20260829-handoff.md
+events:
+  emitted:
+    - run.created
+    - run.completed
+    - run.summary.created
+privacy:
+  public_safe: true

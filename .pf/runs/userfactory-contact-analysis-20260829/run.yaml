@@ -1,0 +1,31 @@
+schema_version: 1
+id: userfactory-contact-analysis-20260829
+title: Analyze Contact UserFactory regression
+process: software-feature-development
+status: completed
+created_at: '2026-08-29T06:27:45Z'
+updated_at: '2026-08-29T06:31:22Z'
+objective: Find why com_contact single contact pages can throw UserFactory not set when WT Multicategories is enabled but contact multicategory field is not configured.
+platform: platform.joomla
+selected_specializations:
+  - specialization.fullstack
+scope:
+  type: project
+  project_root: .
+tasks:
+  -
+    id: task-analyze-contact-userfactory-disabled-field
+    assignment: .pf/assignments/task-analyze-contact-userfactory-disabled-field.yaml
+    status: done
+    order: 1
+    blocking: true
+final_artifacts:
+  - .pf/runs/userfactory-contact-analysis-20260829/summary.md
+  - .pf/handoffs/runs/userfactory-contact-analysis-20260829-handoff.md
+events:
+  emitted:
+    - run.created
+    - run.summary.created
+    - run.completed
+privacy:
+  public_safe: true

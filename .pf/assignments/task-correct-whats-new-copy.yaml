@@ -1,0 +1,84 @@
+schema_version: 1
+id: task-correct-whats-new-copy
+title: Correct What's New wording
+run_id: release-1-2-1-whats-new-copy-fix-20260829
+process: software-feature-development
+status: done
+created_at: '2026-08-29T07:46:51Z'
+updated_at: '2026-08-29T07:48:42Z'
+objective: Keep only a Bug fixes heading and the Contact page fix description in English and Russian, then rebuild and verify the package.
+platform: platform.joomla
+selected_specializations:
+  - specialization.fullstack
+order: 1
+dependencies:
+  blocked_by:
+    []
+  blocks:
+    []
+iterations:
+  []
+result:
+  status: done
+  summary: Removed the misleading Joomla 6.1.3 item, retained one Bug fixes section in both languages, rebuilt and installed the package, and verified deployed constants.
+  artifacts:
+    - .pf/artifacts/release-1-2-1-whats-new-copy-verification.md
+execution_mode:
+  kind: implementation
+  code_changes_allowed: true
+  artifact_changes_allowed: true
+  requires_review: true
+workspace_access:
+  knowledge_resources:
+    []
+  templates:
+    []
+  tools:
+    - phing-packager
+  mcp:
+    - phpstorm
+allowed_files:
+  - language/en-GB/plg_system_wtmulticategories.sys.ini
+  - language/ru-RU/plg_system_wtmulticategories.sys.ini
+  - .pf/assignments/task-correct-whats-new-copy.yaml
+  - .pf/handoffs/runs/release-1-2-1-whats-new-copy-fix-20260829-handoff.md
+  - .pf/artifacts/release-1-2-1-whats-new-copy-*
+  - .pf/runs/release-1-2-1-whats-new-copy-fix-20260829/*
+ownership:
+  owner_id: codex
+  owner_label: worker-codex
+  role: developer
+  writer: true
+  owned_files:
+    - language/en-GB/plg_system_wtmulticategories.sys.ini
+    - language/ru-RU/plg_system_wtmulticategories.sys.ini
+    - .pf/assignments/task-correct-whats-new-copy.yaml
+    - .pf/handoffs/runs/release-1-2-1-whats-new-copy-fix-20260829-handoff.md
+    - .pf/artifacts/release-1-2-1-whats-new-copy-*
+    - .pf/runs/release-1-2-1-whats-new-copy-fix-20260829/*
+  owned_globs:
+    []
+non_overlap:
+  policy: block_on_write_overlap
+  active_parallel_tasks:
+    []
+  current_write_scope:
+    - language/en-GB/plg_system_wtmulticategories.sys.ini
+    - language/ru-RU/plg_system_wtmulticategories.sys.ini
+    - .pf/assignments/task-correct-whats-new-copy.yaml
+    - .pf/handoffs/runs/release-1-2-1-whats-new-copy-fix-20260829-handoff.md
+    - .pf/artifacts/release-1-2-1-whats-new-copy-*
+    - .pf/runs/release-1-2-1-whats-new-copy-fix-20260829/*
+  rule: Do not edit files owned by active parallel tasks.
+required_outputs:
+  -
+    id: copy-verification
+    path: .pf/artifacts/release-1-2-1-whats-new-copy-verification.md
+    type: markdown
+    required: true
+expected_report:
+  language: ru
+  artifact: .pf/artifacts/release-1-2-1-whats-new-copy-verification.md
+  format: concise_markdown
+  include:
+    - copy-verification

@@ -1,0 +1,84 @@
+schema_version: 1
+id: task-update-whats-new-1-2-1
+title: Update end-user What's New copy
+run_id: release-1-2-1-whats-new-20260829
+process: software-feature-development
+status: done
+created_at: '2026-08-29T07:40:14Z'
+updated_at: '2026-08-29T07:42:30Z'
+objective: Replace the 1.2.0 What's New text with concise non-technical 1.2.1 release notes in both extension languages and verify the rebuilt ZIP.
+platform: platform.joomla
+selected_specializations:
+  - specialization.fullstack
+order: 1
+dependencies:
+  blocked_by:
+    []
+  blocks:
+    []
+iterations:
+  []
+result:
+  status: done
+  summary: Added concise end-user What's New copy for 1.2.1 in English and Russian, rebuilt and installed the package on Joomla.local, and verified both deployed language constants.
+  artifacts:
+    - .pf/artifacts/release-1-2-1-whats-new-verification.md
+execution_mode:
+  kind: implementation
+  code_changes_allowed: true
+  artifact_changes_allowed: true
+  requires_review: true
+workspace_access:
+  knowledge_resources:
+    []
+  templates:
+    []
+  tools:
+    - phing-packager
+  mcp:
+    - phpstorm
+allowed_files:
+  - language/en-GB/plg_system_wtmulticategories.sys.ini
+  - language/ru-RU/plg_system_wtmulticategories.sys.ini
+  - .pf/assignments/task-update-whats-new-1-2-1.yaml
+  - .pf/handoffs/runs/release-1-2-1-whats-new-20260829-handoff.md
+  - .pf/artifacts/release-1-2-1-whats-new-*
+  - .pf/runs/release-1-2-1-whats-new-20260829/*
+ownership:
+  owner_id: codex
+  owner_label: worker-codex
+  role: developer
+  writer: true
+  owned_files:
+    - language/en-GB/plg_system_wtmulticategories.sys.ini
+    - language/ru-RU/plg_system_wtmulticategories.sys.ini
+    - .pf/assignments/task-update-whats-new-1-2-1.yaml
+    - .pf/handoffs/runs/release-1-2-1-whats-new-20260829-handoff.md
+    - .pf/artifacts/release-1-2-1-whats-new-*
+    - .pf/runs/release-1-2-1-whats-new-20260829/*
+  owned_globs:
+    []
+non_overlap:
+  policy: block_on_write_overlap
+  active_parallel_tasks:
+    []
+  current_write_scope:
+    - language/en-GB/plg_system_wtmulticategories.sys.ini
+    - language/ru-RU/plg_system_wtmulticategories.sys.ini
+    - .pf/assignments/task-update-whats-new-1-2-1.yaml
+    - .pf/handoffs/runs/release-1-2-1-whats-new-20260829-handoff.md
+    - .pf/artifacts/release-1-2-1-whats-new-*
+    - .pf/runs/release-1-2-1-whats-new-20260829/*
+  rule: Do not edit files owned by active parallel tasks.
+required_outputs:
+  -
+    id: whats-new-report
+    path: .pf/artifacts/release-1-2-1-whats-new-verification.md
+    type: markdown
+    required: true
+expected_report:
+  language: ru
+  artifact: .pf/artifacts/release-1-2-1-whats-new-verification.md
+  format: concise_markdown
+  include:
+    - whats-new-report

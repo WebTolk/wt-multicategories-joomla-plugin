@@ -1,0 +1,72 @@
+schema_version: 1
+id: task-pf-init-readiness
+title: Verify ProcessForge onboarding readiness
+run_id: pf-init-20260829
+process: software-feature-development
+status: done
+created_at: '2026-08-29T06:02:30Z'
+updated_at: '2026-08-29T06:03:17Z'
+objective: Verify ProcessForge onboarding and record project readiness for future Joomla fullstack software development work
+platform: joomla
+selected_specializations:
+  - specialization.fullstack
+order: 1
+dependencies:
+  blocked_by:
+    []
+  blocks:
+    []
+iterations:
+  []
+result:
+  status: done
+  summary: ProcessForge onboarding verified for Joomla fullstack software development; readiness note created; doctor/project-context/events checks pass.
+  artifacts:
+    - .pf/artifacts/first-assignment-readiness-note.md
+execution_mode:
+  kind: assurance
+  code_changes_allowed: false
+  artifact_changes_allowed: true
+  requires_review: true
+allowed_files:
+  - .pf/artifacts/first-assignment-readiness-note.md
+  - .pf/artifacts/project-onboarding-report.md
+  - .pf/assignments/first-assignment.yaml
+  - .gitignore
+  - .pf/process-forge.yaml
+ownership:
+  owner_id: codex
+  owner_label: worker-codex
+  role: fullstack
+  writer: true
+  owned_files:
+    - .pf/artifacts/first-assignment-readiness-note.md
+    - .pf/artifacts/project-onboarding-report.md
+    - .pf/assignments/first-assignment.yaml
+    - .gitignore
+    - .pf/process-forge.yaml
+  owned_globs:
+    []
+non_overlap:
+  policy: block_on_write_overlap
+  active_parallel_tasks:
+    []
+  current_write_scope:
+    - .pf/artifacts/first-assignment-readiness-note.md
+    - .pf/artifacts/project-onboarding-report.md
+    - .pf/assignments/first-assignment.yaml
+    - .gitignore
+    - .pf/process-forge.yaml
+  rule: Do not edit files owned by active parallel tasks.
+required_outputs:
+  -
+    id: first-assignment-readiness-note
+    type: unspecified
+    required: true
+    path: .pf/artifacts/first-assignment-readiness-note.md
+expected_report:
+  language: ru
+  artifact: .pf/artifacts/first-assignment-readiness-note.md
+  format: concise_markdown
+  include:
+    - first-assignment-readiness-note
